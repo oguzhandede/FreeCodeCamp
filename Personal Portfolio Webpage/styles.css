@@ -1,0 +1,266 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+
+}
+
+.container {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #12123D;
+    height: 60px;
+    /* background-image: url(https://cdn.pixabay.com/photo/2015/12/01/15/43/black-1072366_960_720.jpg);
+    height: 400px;
+    object-fit: cover;
+ 
+    z-index: -1; */
+}
+
+
+
+
+nav ul {
+    margin-left: 570px;
+    margin-top: -40px;
+}
+
+nav li {
+    list-style-type: none;
+    display: inline;
+    background-color: #12123D;
+    padding: 5px;
+    border-radius: 20px;
+    font-size: 25px;
+}
+
+a {
+    text-decoration: none;
+    color: #D4AA00;
+
+}
+
+nav li:hover {
+    background-color: #D4AA00;
+}
+
+nav li a:hover {
+    color: #12123D;
+}
+
+.boxone {
+    border-radius: 10px 10px 0 0;
+    border: 4px solid #12123D;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #EEEEEE;
+    height: 400px;
+    margin-top: 70px;
+    padding: 20px;
+    letter-spacing: 1px;
+}
+
+.my {
+    margin-left: 425px;
+    font-size: 20px;
+
+}
+
+.boxone p {
+    border-bottom: 1px solid #12123D;
+    font-size: 25px;
+    margin-top: 20px;
+
+}
+
+table {
+    margin-left: 425px;
+    font-size: 20px;
+    margin-top: 20px;
+
+}
+
+.profile-img {
+    width: 400px;
+    height: 360px;
+    object-fit: cover;
+    float: left;
+}
+
+.socialbox {
+    width: 100%;
+    height: 100px;
+    background-color: #12123D;
+    float: left;
+    margin-top: 0px;
+}
+
+.icon {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.socialbox i {
+    margin-top: 20px;
+    font-size: 60px;
+    margin-left: 75px;
+}
+
+.socialbox a {
+    text-decoration: none;
+    color: #EEEEEE;
+}
+
+.profileabout {
+    text-align: center;
+    float: none;
+    font-size: 30px;
+    letter-spacing: 1, 15cm;
+    margin: 10px;
+    padding: 10px;
+}
+
+.timeline h2 {
+    border-bottom: 1px solid #12123D;
+    margin-right: 20px;
+    font-size: 30px;
+
+}
+
+.education {
+    float: left;
+    width: 50%;
+}
+
+.experience {
+    float: right;
+    width: 50%;
+}
+
+.skills {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.skill {
+    width: 100%;
+    height: 51px;
+    border: 1px solid #12123D;
+    margin-top: 10px;
+    border-radius: 10px
+}
+
+
+
+
+.skillbox h4 {
+    float: left;
+    margin-top: 5px;
+}
+
+.skillbox p {
+    float: right;
+    margin-top: 5px;
+
+}
+
+.html {
+    width: 90%;
+    height: 50px;
+    background-color: #12123D;
+    border-radius: 10px 0 0 10px;
+    color: #D4AA00;
+
+}
+
+.css {
+    width: 80%;
+    height: 50px;
+    background-color: #D4AA00;
+    color: #12123D;
+    border-radius: 10px 0 0 10px;
+
+}
+
+.js {
+    width: 45%;
+    height: 50px;
+    background-color: #12123D;
+    border-radius: 10px 0 0 10px;
+    color: #D4AA00;
+
+}
+
+.php {
+    width: 75%;
+    height: 50px;
+    background-color: #D4AA00;
+    color: #12123D;
+    border-radius: 10px 0 0 10px;
+}
+
+.projects {
+    display: flex;
+
+}
+
+.project-tile {
+    text-align: center;
+    font-size: 30px;
+}
+
+.projectbox {
+    width: 23%;
+    margin: 1%;
+    height: auto;
+    border: 1px solid #12123D;
+    float: left;
+}
+
+.projectbox img {
+    max-width: 100%;
+}
+
+.projectbox p {
+    background-color: #12123D;
+    color: #D4AA00;
+    font-size: 20px;
+
+}
+
+footer {
+    text-align: center;
+    font-size: 18px;
+    color: gray;
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+    * {
+        padding: 1px;
+    }
+}
+
+@media only screen and (max-width: 252) {
+    nav ul {
+        margin-left: 400px;
+        margin-top: 0px;
+    }
+}
