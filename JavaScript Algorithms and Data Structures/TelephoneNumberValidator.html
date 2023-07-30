@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telephone Check</title>
+</head>
+
+<body>
+  <!-- JavaScript kodu burada yer alıyor -->
+  <script>
+    function telephoneCheck(str) {
+      // Geçerli bir ABD telefon numarası için kullanılabilir formatlar için bir regex ifadesi
+      const regex = /^(1\s?)?(\(\d{3}\)|\d{3})([\s\-]?)\d{3}([\s\-]?)\d{4}$/;
+
+      // Metni regex ile kontrol ediyoruz ve sonucu döndürüyoruz
+      return regex.test(str);
+    }
+
+    // Testler ve sonuçları ekrana yazdır
+    document.write("<h1>Telephone Check</h1>");
+    document.write("<p>555-555-5555: " + telephoneCheck("555-555-5555") + "</p>");
+    document.write("<p>1 555-555-5555: " + telephoneCheck("1 555-555-5555") + "</p>");
+    document.write("<p>1 (555) 555-5555: " + telephoneCheck("1 (555) 555-5555") + "</p>");
+    document.write("<p>5555555555: " + telephoneCheck("5555555555") + "</p>");
+    document.write("<p>555-555-5555: " + telephoneCheck("555-555-5555") + "</p>");
+    document.write("<p>(555)555-5555: " + telephoneCheck("(555)555-5555") + "</p>");
+    document.write("<p>1(555)555-5555: " + telephoneCheck("1(555)555-5555") + "</p>");
+    document.write("<p>555-5555: " + telephoneCheck("555-5555") + "</p>");
+    document.write("<p>5555555: " + telephoneCheck("5555555") + "</p>");
+    document.write("<p>1 555)555-5555: " + telephoneCheck("1 555)555-5555") + "</p>");
+  </script>
+</body>
+
+</html>

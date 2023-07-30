@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- JavaScript kodu burada yer alıyor -->
+  <script>
+    function palindrome(str) {
+      // Alfasayısal olmayan karakterleri kaldır ve metni küçük harfe çevir
+      const cleanedStr = str.replace(/[^A-Za-z0-9]/g, '').toLowerCase();
+
+      // Temizlenmiş metni ters çevirilmiş haliyle karşılaştır ve palindrom olup olmadığını döndür
+      return cleanedStr === cleanedStr.split('').reverse().join('');
+    }
+
+    // Test için örnekler ve sonuçları ekrana yazdır
+    document.write("<h1>Palindrom Test Sonuçları:</h1>");
+    document.write("<p>eye: " + palindrome("eye") + "</p>");
+    document.write("<p>_eye: " + palindrome("_eye") + "</p>");
+    document.write("<p>race car: " + palindrome("race car") + "</p>");
+    document.write("<p>not a palindrome: " + palindrome("not a palindrome") + "</p>");
+    document.write("<p>A man, a plan, a canal. Panama: " + palindrome("A man, a plan, a canal. Panama") + "</p>");
+    document.write("<p>never odd or even: " + palindrome("never odd or even") + "</p>");
+    document.write("<p>nope: " + palindrome("nope") + "</p>");
+    document.write("<p>almostomla: " + palindrome("almostomla") + "</p>");
+    document.write("<p>My age is 0, 0 si ega ym.: " + palindrome("My age is 0, 0 si ega ym.") + "</p>");
+    document.write("<p>1 eye for of 1 eye.: " + palindrome("1 eye for of 1 eye.") + "</p>");
+    document.write("<p>0_0 (: /-\ :) 0-0: " + palindrome("0_0 (: /-\ :) 0-0") + "</p>");
+    document.write("<p>five|\\_/|four: " + palindrome("five|\\_/|four") + "</p>");
+  </script>
+</body>
+
+</html>

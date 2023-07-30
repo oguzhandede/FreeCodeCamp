@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROT13 Decoder</title>
+</head>
+
+<body>
+  <!-- JavaScript kodu burada yer alıyor -->
+  <script>
+    function rot13(str) {
+      // Yardımcı işlev: Bir karakteri 13 birim kaydırmak için kullanılır
+      function shiftBy13(char) {
+        const charCode = char.charCodeAt(0);
+        let shiftedCharCode = charCode;
+
+        if (charCode >= 65 && charCode <= 90) { // Karakterin büyük harf olup olmadığını kontrol eder
+          shiftedCharCode = ((charCode - 65 + 13) % 26) + 65; // Karakteri 13 birim kaydırır
+        }
+
+        return String.fromCharCode(shiftedCharCode);
+      }
+
+      // Yardımcı işlevi kullanarak tüm karakterleri döngüyle 13 birim kaydırarak dizeyi çözer
+      const decodedStr = str.split('').map(shiftBy13).join('');
+
+      return decodedStr;
+    }
+
+    // Testleri çalıştırma ve sonuçları ekrana yazdır
+    document.write("<h1>ROT13 Decoder</h1>");
+    document.write("<p>SERR PBQR PNZC: " + rot13("SERR PBQR PNZC") + "</p>");
+    document.write("<p>SERR CVMMN!: " + rot13("SERR CVMMN!") + "</p>");
+    document.write("<p>SERR YBIR?: " + rot13("SERR YBIR?") + "</p>");
+    document.write("<p>GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.: " + rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.") + "</p>");
+  </script>
+</body>
+
+</html>

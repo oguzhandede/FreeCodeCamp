@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cash Register</title>
+</head>
+
+<body>
+  <!-- JavaScript kodu burada yer alıyor -->
+  <script>
+    function checkCashRegister(price, cash, cid) {
+      // Para birimlerini ve değerlerini tanımlama
+      const currencyUnits = [
+        ["PENNY", 0.01],
+        ["NICKEL", 0.05],
+        ["DIME", 0.1],
+        ["QUARTER", 0.25],
+        ["ONE", 1],
+        ["FIVE", 5],
+        ["TEN", 10],
+        ["TWENTY", 20],
+        ["ONE HUNDRED", 100]
+      ];
+
+      // Toplam para miktarını hesaplama
+      const totalCashInDrawer = cid.reduce((total, coin) => total + coin[1], 0).toFixed(2);
+
+      // Geri ödeme yapılacak miktarı hesaplama
+      var changeDue = (cash - price).toFixed(2);
+
+      // Çekme çekmecesi durumunu kontrol etme
+      if (parseFloat(totalCashInDrawer) < parseFloat(changeDue)) {
+        return { status: "INSUFFICIENT_FUNDS", change: [] };
+      } else if (parseFloat(totalCashInDrawer) === parseFloat(changeDue)) {
+        return { status: "CLOSED", change: cid };
+      } else {
+        // Geri ödeme yapılabilirse para birimlerini çekmeceden çekme
+        let change = [];
+        for (let i = currencyUnits.length - 1; i >= 0; i--) {
+          const coinName = currencyUnits[i][0];
+          const coinValue = currencyUnits[i][1];
+          const availableCoins = cid[i][1];
+          let count = Math.floor(changeDue / coinValue);
+
+          if (count > 0) {
+            const requiredAmount = (coinValue * count).toFixed(2);
+            const amountToUse = Math.min(requiredAmount, availableCoins);
+            changeDue = (changeDue - amountToUse).toFixed(2);
+            change.push([coinName, parseFloat(amountToUse)]);
+          }
+        }
+
+        // Geri ödeme yapılacak miktarı kontrol etme
+        if (parseFloat(changeDue) > 0) {
+          return { status: "INSUFFICIENT_FUNDS", change: [] };
+        }
+
+        return { status: "OPEN", change };
+      }
+    }
+
+    // Testler
+    const cashInDrawer = [
+      ["PENNY", 1.01],
+      ["NICKEL", 2.05],
+      ["DIME", 3.1],
+      ["QUARTER", 4.25],
+      ["ONE", 90],
+      ["FIVE", 55],
+      ["TEN", 20],
+      ["TWENTY", 60],
+      ["ONE HUNDRED", 100]
+    ];
+
+    const result = checkCashRegister(19.5, 20, cashInDrawer);
+
+    document.write("<h1>Cash Register</h1>");
+    document.write("<p>Status: " + result.status + "</p>");
+    document.write("<p>Change: " + JSON.stringify(result.change) + "</p>");
+  </script>
+</body>
+
+</html>

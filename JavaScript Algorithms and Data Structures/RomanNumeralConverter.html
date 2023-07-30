@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convert to Roman</title>
+</head>
+
+<body>
+  <!-- JavaScript kodu burada yer alıyor -->
+  <script>
+    function convertToRoman(num) {
+      // Roma rakamları ve karşılık geldiği sayılar için bir dizi oluşturuyoruz
+      const romanNumerals = [
+        { value: 1000, numeral: 'M' },
+        { value: 900, numeral: 'CM' },
+        { value: 500, numeral: 'D' },
+        { value: 400, numeral: 'CD' },
+        { value: 100, numeral: 'C' },
+        { value: 90, numeral: 'XC' },
+        { value: 50, numeral: 'L' },
+        { value: 40, numeral: 'XL' },
+        { value: 10, numeral: 'X' },
+        { value: 9, numeral: 'IX' },
+        { value: 5, numeral: 'V' },
+        { value: 4, numeral: 'IV' },
+        { value: 1, numeral: 'I' }
+      ];
+
+      // Sonuç için boş bir dize oluşturuyoruz
+      let result = '';
+
+      // Verilen sayıyı Roma rakamına dönüştürmek için bir döngü başlatıyoruz
+      for (const item of romanNumerals) {
+        // Sayı, dizi öğesinin değerine eşit veya büyük olduğu sürece döngü devam edecek
+        while (num >= item.value) {
+          // Roma rakamını sonuca ekliyoruz
+          result += item.numeral;
+          // Sayıdan, zaten Roma rakamına dönüştürdüğümüz değeri çıkartıyoruz
+          num -= item.value;
+        }
+      }
+
+      // Sonuç dizesini döndürüyoruz
+      return result;
+    }
+
+    // Test için örnekler ve sonuçları ekrana yazdır
+    document.write("<h1>Roman Numeral Converter</h1>");
+    document.write("<p>1984: " + convertToRoman(1984) + "</p>");
+    document.write("<p>3999: " + convertToRoman(3999) + "</p>");
+    document.write("<p>50: " + convertToRoman(50) + "</p>");
+    document.write("<p>9: " + convertToRoman(9) + "</p>");
+    document.write("<p>4: " + convertToRoman(4) + "</p>");
+    document.write("<p>1: " + convertToRoman(1) + "</p>");
+  </script>
+</body>
+
+</html>
